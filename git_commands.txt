@@ -14,3 +14,16 @@ git commit -m "added main.py"
 
 # if this command is run after commit then it deletes that version of main otherwise will fail before commiting
 git rm --cached main.py
+
+# this command will link the remote repository to our local repository
+git remote add origin https://github.com/hemant-ag/github_devops.git
+
+# to check remote git repository
+git remote -v
+
+# Afterwards if we run the command , it will ask for user name and password
+git push origin master
+
+# to avoid this , generate a personal access token(PAT) from github and run the following
+git remote set-url origin https://{PAT}@github.com/hemant-ag/github_devops.git
+git push origin master
