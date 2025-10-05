@@ -41,3 +41,9 @@ ubuntu$ git log --oneline
 4dcd82c (HEAD -> master, origin/master) added remote commands in git_commands.txt
 9085d03 added git_commands.txt and some idea files auto added
 07c79f2 added main.py
+
+#we can use command to pull the code from master branch from github
+git pull origin master
+
+#so if we want to have all branches from our remote to local, run the command
+git fetch
