@@ -26,4 +26,18 @@ git push origin master
 
 # to avoid this , generate a personal access token(PAT) from github and run the following
 git remote set-url origin https://{PAT}@github.com/hemant-ag/github_devops.git
-git push origin master
+git push origin master:
+
+#so created a new dev branch from master
+git checkout -B dev
+OR
+git branch dev
+git checkout dev
+
+#added the concepts of HEAD i.e. last commit on a branch
+# so, for example i am working on master branch so my head is latest commit on that branch
+
+ubuntu$ git log --oneline
+4dcd82c (HEAD -> master, origin/master) added remote commands in git_commands.txt
+9085d03 added git_commands.txt and some idea files auto added
+07c79f2 added main.py
