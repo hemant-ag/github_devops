@@ -47,3 +47,18 @@ git pull origin master
 
 #so if we want to have all branches from our remote to local, run the command
 git fetch
+
+#Pre commit steps
+#so now if we have a wrong syntax in some file or some sensitive data in file like password, key etc
+#we can have the commit stopped, so that we can check the files
+#it will help us not commit that file to github as that is very dangerous, secrets can be leaked
+
+#We can create a pre-commit file in hooks folder present in .git directory having content
+
+files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.py$'
+flake8 $files
+
+#Above file will filter only the names of changed files and will check only for python files
+#A: Added (new files staged for commit)
+#C: Copied (files copied/staged)
+#M: Modified (existing files changed and staged)
