@@ -1,0 +1,16 @@
+git init
+git status
+git add main.py
+git status
+
+#to commit you need to set below
+git config --list
+git config user.name "Hemant Agarwal"
+git config user.email "hemantbansal1992@gmail.com"
+git config --list
+
+#do commit now
+git commit -m "added main.py"
+
+# if this command is run after commit then it deletes that version of main otherwise will fail before commiting
+git rm --cached main.py
