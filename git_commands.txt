@@ -52,13 +52,22 @@ git fetch
 #so now if we have a wrong syntax in some file or some sensitive data in file like password, key etc
 #we can have the commit stopped, so that we can check the files
 #it will help us not commit that file to github as that is very dangerous, secrets can be leaked
+#We can create a file named pre-commit in hooks folder present in .git directory having content with executable permission
+#also if there is any password or secret data in any file it can also capture that in pre-commit file
 
-#We can create a pre-commit file in hooks folder present in .git directory having content
+files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.py$')
 
-files=$(git diff --cached --name-only --diff-filter=ACM | grep '\.py$'
 flake8 $files
 
+if git grep -q "password\|secret_key\|API_KEY" $(git diff --cached --name-only)
+then
+echo "sensitive data found, please check"
+exit 1
+fi
+
+
 #Above file will filter only the names of changed files and will check only for python files
+#and check for sensitive data in any files
 #A: Added (new files staged for commit)
 #C: Copied (files copied/staged)
 #M: Modified (existing files changed and staged)
